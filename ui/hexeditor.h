@@ -155,6 +155,7 @@ private:
 	uint64_t m_cursorAddr, m_prevCursorAddr;
 	int m_cursorOffset;
 	uint64_t m_selectionStartAddr;
+	int m_addressDigits;
 	int m_cols, m_visibleRows;
 	int m_lastMouseX, m_lastMouseY;
 	bool m_selectionVisible;
