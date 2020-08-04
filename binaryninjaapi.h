@@ -2592,6 +2592,8 @@ __attribute__ ((format (printf, 1, 2)))
 		Confidence<bool> IsSigned() const;
 		Confidence<bool> IsConst() const;
 		Confidence<bool> IsVolatile() const;
+		BNIntegerDisplayType GetIntegerTypeDisplayType() const;
+		void SetIntegerTypeDisplayType(BNIntegerDisplayType displayType);
 
 		Confidence<Ref<Type>> GetChildType() const;
 		Confidence<Ref<CallingConvention>> GetCallingConvention() const;

@@ -3966,6 +3966,8 @@ __attribute__ ((format (printf, 1, 2)))
 	BINARYNINJACOREAPI BNTypeClass BNGetTypeClass(BNType* type);
 	BINARYNINJACOREAPI uint64_t BNGetTypeWidth(BNType* type);
 	BINARYNINJACOREAPI size_t BNGetTypeAlignment(BNType* type);
+	BINARYNINJACOREAPI BNIntegerDisplayType BNGetIntegerTypeDisplayType(BNTypeBuilder* type);
+	BINARYNINJACOREAPI void BNSetIntegerTypeDisplayType(BNTypeBuilder* type, BNIntegerDisplayType displayType);
 	BINARYNINJACOREAPI BNBoolWithConfidence BNIsTypeSigned(BNType* type);
 	BINARYNINJACOREAPI BNBoolWithConfidence BNIsTypeConst(BNType* type);
 	BINARYNINJACOREAPI BNBoolWithConfidence BNIsTypeVolatile(BNType* type);

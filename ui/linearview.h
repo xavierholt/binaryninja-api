@@ -233,19 +233,6 @@ private Q_SLOTS:
 
 	size_t getStringLength(uint64_t startAddr);
 
-	void displayAsDefault();
-	void displayAsBinary();
-	void displayAsSignedOctal();
-	void displayAsUnsignedOctal();
-	void displayAsSignedDecimal();
-	void displayAsUnsignedDecimal();
-	void displayAsSignedHexadecimal();
-	void displayAsUnsignedHexadecimal();
-	void displayAsCharacterConstant();
-	void displayAsPointer();
-	void displayAsFloat();
-	void displayAsDouble();
-
 	void setInstructionHighlight(BNHighlightColor color);
 	void setBlockHighlight(BNHighlightColor color);
 

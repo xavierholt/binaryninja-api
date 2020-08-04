@@ -1052,6 +1052,15 @@ Confidence<bool> TypeBuilder::IsConst() const
 	return Confidence<bool>(result.value, result.confidence);
 }
 
+BNIntegerDisplayType TypeBuilder::GetIntegerTypeDisplayType() const
+{
+	return BNGetIntegerTypeDisplayType(m_object);
+}
+
+void TypeBuilder::SetIntegerTypeDisplayType(BNIntegerDisplayType displayType)
+{
+	BNSetIntegerTypeDisplayType(m_object, displayType);
+}
 
 Confidence<BNMemberScope> TypeBuilder::GetScope() const
 {
