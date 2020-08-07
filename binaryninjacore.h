@@ -259,6 +259,7 @@ extern "C"
 		CommentToken = 29,
 		PossibleValueToken = 30,
 		PossibleValueTypeToken = 31,
+		ArrayIndexToken = 32,
 		// The following are output by the analysis system automatically, these should
 		// not be used directly by the architecture plugins
 		CodeSymbolToken = 64,
