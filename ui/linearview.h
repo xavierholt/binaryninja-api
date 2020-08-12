@@ -226,6 +226,8 @@ private Q_SLOTS:
 	void makePtr();
 	void makeString();
 	void changeType();
+	void displayAs(const UIActionContext& context, BNIntegerDisplayType displayType) override;
+	void undefineVariable();
 	void createStructOrInferStructureType();
 	void createArray();
 	void createStruct();
