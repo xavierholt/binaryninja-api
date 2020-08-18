@@ -3382,6 +3382,8 @@ __attribute__ ((format (printf, 1, 2)))
 	BINARYNINJACOREAPI void BNClearUserVariableValue(BNFunction* func, const BNVariable* var, const BNArchitectureAndAddress* defSite);
 	BINARYNINJACOREAPI BNUserVariableValue* BNGetAllUserVariableValues(BNFunction *func, size_t* count);
 	BINARYNINJACOREAPI void BNFreeUserVariableValues(BNUserVariableValue* result);
+	BINARYNINJACOREAPI bool BNParsePossibleValueSetString(BNBinaryView* view, const char* valueText, const char* stateText, 
+			BNPossibleValueSet* result, uint64_t here, char** errors);
 
 	BINARYNINJACOREAPI void BNRequestFunctionDebugReport(BNFunction* func, const char* name);
 

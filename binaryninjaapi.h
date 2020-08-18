@@ -1370,6 +1370,7 @@ __attribute__ ((format (printf, 1, 2)))
 	};
 
 	struct QualifiedNameAndType;
+	struct PossibleValueSet;
 	class Metadata;
 	class QueryMetadataException: public std::exception
 	{
@@ -1659,6 +1660,7 @@ __attribute__ ((format (printf, 1, 2)))
 		uint64_t GetPreviousDataBeforeAddress(uint64_t addr);
 		uint64_t GetPreviousDataVariableStartBeforeAddress(uint64_t addr);
 
+		bool ParsePossibleValueSetString(const std::string& value, const std::string& state, PossibleValueSet& result, uint64_t here, std::string& errors);
 		bool ParseTypeString(const std::string& text, QualifiedNameAndType& result, std::string& errors);
 		bool ParseTypeString(const std::string& text, std::map<QualifiedName, Ref<Type>>& types,
 			std::map<QualifiedName, Ref<Type>>& variables, std::map<QualifiedName, Ref<Type>>& functions, std::string& errors);

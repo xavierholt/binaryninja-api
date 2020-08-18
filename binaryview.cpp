@@ -2446,6 +2446,27 @@ uint64_t BinaryView::GetPreviousDataVariableStartBeforeAddress(uint64_t addr)
 }
 
 
+bool BinaryView::ParsePossibleValueSetString(const string& value, const string& state, PossibleValueSet& result, uint64_t here, string& errors)
+{
+	BNPossibleValueSet res;
+	char* errorStr;
+
+	if (!BNParsePossibleValueSetString(m_object, value.c_str(), state.c_str(), &res, here, &errorStr))
+	{
+		if (!errorStr)
+			errors = "";
+		else
+			errors = errorStr;
+		BNFreeString(errorStr);
+		return false;
+	}
+
+	result = PossibleValueSet::FromAPIObject(res);
+	errors = "";
+	return true;
+}
+
+
 bool BinaryView::ParseTypeString(const string& text, QualifiedNameAndType& result, string& errors)
 {
 	BNQualifiedNameAndType nt;
