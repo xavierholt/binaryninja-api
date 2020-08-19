@@ -163,6 +163,7 @@ class BINARYNINJAUIAPI LinearView: public QAbstractScrollArea, public View, publ
 	StructureRef defineInnerArray(TypeRef type, uint64_t offset, uint64_t size, std::set<TypeRef>& seen);
 	StructureRef defineInnerName(TypeRef type, uint64_t offset, uint64_t size, std::set<TypeRef>& seen);
 	StructureRef defineInnerUnknownType(QWidget* parent, TypeRef type, uint64_t offset, uint64_t size, std::set<TypeRef>& seen);
+	StructureRef setInnerTypeDisplayType(QWidget* parent, TypeRef type, uint64_t offset, uint64_t size, std::set<TypeRef>& seen, BNIntegerDisplayType displayType);
 	StructureRef defineInnerIntegerSize(TypeRef type, uint64_t offset, uint64_t size, std::set<TypeRef>& seen);
 	StructureRef defineInnerSign(TypeRef type, uint64_t offset, uint64_t size, std::set<TypeRef>& seen);
 	TypeRef getPointerTypeAndName(ArchitectureRef arch, uint64_t addr, std::string& name);
@@ -258,6 +259,7 @@ public:
 	virtual BinaryViewRef getData() override { return m_data; }
 	void getCurrentOffsetByType(TypeRef resType, uint64_t baseAddr, uint64_t& begin, uint64_t& end, bool singleLine);
 	virtual uint64_t getCurrentOffset() override;
+	virtual UIActionContext actionContext() override;
 	virtual BNAddressRange getSelectionOffsets() override;
 	virtual BNAddressRange getSelectionForInfo() override;
 	virtual void setSelectionOffsets(BNAddressRange range) override;

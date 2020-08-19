@@ -100,6 +100,11 @@
 #define DEFAULT_INTERNAL_NAMESPACE "BNINTERNALNAMESPACE"
 #define DEFAULT_EXTERNAL_NAMESPACE "BNEXTERNALNAMESPACE"
 
+// these three marks whether a function argument is input, output, or both
+#define IN
+#define OUT
+#define INOUT
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -1546,6 +1551,27 @@ extern "C"
 		uint8_t mix, r, g, b, alpha;
 	};
 
+	enum BNTypeDefinitionLineType
+	{
+		TypedefLineType,
+		StructDefinitionLineType,
+		StructFieldLineType,
+		StructDefinitionEndLineType,
+		EnumDefinitionLineType,
+		EnumMemberLineType,
+		EnumDefinitionEndLineType,
+		PaddingLineType,
+		// the currnet line has no associated type info
+		NoTypeLineType
+	};
+
+	struct BNDisassemblyTextLineTypeInfo
+	{
+		BNTypeDefinitionLineType lineType;
+		BNType* currType;
+		size_t fieldIndex;
+	};
+
 	struct BNDisassemblyTextLine
 	{
 		uint64_t addr;
@@ -1555,6 +1581,7 @@ extern "C"
 		BNHighlightColor highlight;
 		BNTag** tags;
 		size_t tagCount;
+		BNDisassemblyTextLineTypeInfo typeInfo;
 	};
 
 	struct BNLinearDisassemblyLine

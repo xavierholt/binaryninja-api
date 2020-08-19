@@ -578,6 +578,7 @@ namespace BinaryNinja
 	class FlowGraph;
 	class ReportCollection;
 	struct FormInputField;
+	typedef BNTypeDefinitionLineType TypeDefinitionLineType;
 
 	/*! Logs to the error console with the given BNLogLevel.
 
@@ -1198,6 +1199,13 @@ __attribute__ ((format (printf, 1, 2)))
 
 
 	class Tag;
+	struct DisassemblyTextLineTypeInfo
+	{
+		TypeDefinitionLineType lineType;
+		Type* currType;
+		size_t fieldIndex;
+	};
+
 	struct DisassemblyTextLine
 	{
 		uint64_t addr;
@@ -1205,6 +1213,7 @@ __attribute__ ((format (printf, 1, 2)))
 		std::vector<InstructionTextToken> tokens;
 		BNHighlightColor highlight;
 		std::vector<Ref<Tag>> tags;
+		DisassemblyTextLineTypeInfo typeInfo;
 
 		DisassemblyTextLine();
 	};
@@ -2563,6 +2572,8 @@ __attribute__ ((format (printf, 1, 2)))
 		bool IsValue() const { return GetClass() == ValueTypeClass; }
 		bool IsNamedTypeRefer() const { return GetClass() == NamedTypeReferenceClass; }
 		bool IsWideChar() const { return GetClass() == WideCharTypeClass; }
+		// returns whether a type is a leaf node in the type tree
+		// bool IsLeafType const {return !(IsVoid)}
 
 		Ref<Type> WithReplacedStructure(Structure* from, Structure* to);
 		Ref<Type> WithReplacedEnumeration(Enumeration* from, Enumeration* to);

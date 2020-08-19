@@ -208,6 +208,9 @@ vector<LinearDisassemblyLine> LinearViewCursor::GetLines()
 		line.contents.highlight = lines[i].contents.highlight;
 		line.contents.tokens = InstructionTextToken::ConvertInstructionTextTokenList(lines[i].contents.tokens, lines[i].contents.count);
 		line.contents.tags = Tag::ConvertTagList(lines[i].contents.tags, lines[i].contents.tagCount);
+		line.contents.typeInfo.lineType = lines[i].contents.typeInfo.lineType;
+		line.contents.typeInfo.fieldIndex = lines[i].contents.typeInfo.fieldIndex;
+		line.contents.typeInfo.currType = new Type(lines[i].contents.typeInfo.currType);
 		result.push_back(line);
 	}
 

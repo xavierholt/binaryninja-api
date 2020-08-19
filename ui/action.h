@@ -19,6 +19,7 @@
 
 class View;
 class UIContext;
+struct LinearViewCursorPosition;
 
 struct BINARYNINJAUIAPI HighlightTokenState
 {
@@ -42,13 +43,13 @@ struct BINARYNINJAUIAPI UIActionContext
 	View* view;
 	QWidget* widget;
 	HighlightTokenState token;
-
 	BinaryViewRef binaryView;
 	uint64_t address, length;
 	size_t instrIndex;
 	FunctionRef function;
 	LowLevelILFunctionRef lowLevelILFunction;
 	MediumLevelILFunctionRef mediumLevelILFunction;
+	LinearViewCursorPosition* cursorPosition;
 
 	UIActionContext();
 	UIActionContext(const BinaryNinja::PluginCommandContext& pluginContext);

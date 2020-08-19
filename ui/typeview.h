@@ -52,20 +52,9 @@ class BINARYNINJAUIAPI TypeView: public QAbstractScrollArea, public View, public
 {
 	Q_OBJECT
 
-	enum TypeDefinitionLineType
-	{
-		TypedefLineType,
-		StructDefinitionLineType,
-		StructFieldLineType,
-		StructDefinitionEndLineType,
-		EnumDefinitionLineType,
-		EnumMemberLineType,
-		EnumDefinitionEndLineType,
-		PaddingLineType
-	};
-
 	struct TypeDefinitionLine
 	{
+		typedef BNTypeDefinitionLineType TypeDefinitionLineType;
 		TypeDefinitionLineType lineType;
 		std::vector<BinaryNinja::InstructionTextToken> tokens;
 		TypeRef type, rootType;
